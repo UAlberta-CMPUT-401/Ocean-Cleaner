@@ -9,21 +9,21 @@ from django.db import models
 
 class Quiz(models.Model):
 
+    title = models.CharField(max_length=100)
+    id = models.IntegerField(primary_key=True)
     prompt = models.CharField(max_length=200)
 
-    choice1 = models.CharField(max_length=200)
-    choice2 = models.CharField(max_length=200)
-    choice3 = models.CharField(max_length=200)
-    correctAnswer = models.CharField(max_length=200)
-
-    userIsCorrect = models.BooleanField(default=None)
+    #choice1 = models.CharField(max_length=200)
+    #choice2 = models.CharField(max_length=200)
+    #choice3 = models.CharField(max_length=200)
+    correctAnswer = models.BooleanField(default=None)
+    userAnswer = models.BooleanField(default=None)
 
     def __str__(self):
-        return self.item + ' | ' + str(self.completed)
+        return self.prompt
 
-    def matchCorrectAnswer(self, choiceToMatch):
-        self.userIsCorrect = (choiceToMatch == self.correctAnswer)
-
+    def isUserCorrect(self):
+        return self.userAnswer == self.correctAnswer
 
 
 

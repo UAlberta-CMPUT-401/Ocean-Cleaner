@@ -4,75 +4,103 @@
 {% block content %}
 <!--First direction is relative to Y and second direction is relative to X-->
 
-<!--Top Left-->
-<div style = "position:absolute; left:80px; top:200px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable1" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
-</div>
+    {% if quizzes %}
+        {% for quiz in quizzes %}
+            {% if quiz.id == 1 %}
+                <div style = "position:absolute; left:80px; top:200px;">
+                    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable1" data-toggle="modal" data-target="#{{ quiz.title }}">
+                        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+                    </button>
+                </div>
+            {% elif quiz.id == 2 %}
+                <div style = "position:absolute; left:1000px; top:123px;">
+                    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable2" data-toggle="modal" data-target="#{{ quiz.title }}">
+                        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+                    </button>
+                </div>
+            {% else %}
+                <div style = "position:absolute; left:500px; top:500px;">
+                    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable3" data-toggle="modal" data-target="#{{ quiz.title }}">
+                        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+                    </button>
+                </div>
+            {% endif %}
 
- <!--Top Middle-->
- <div style = "position:absolute; left:1000px; top:123px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable2" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
- </div>
+            <!-- Modal -->
+            <div class="modal fade" id="{{ quiz.title }}" tabindex="-1" role="dialog" aria-labelledby="quizModalTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">{{ quiz.title }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      {{ quiz.prompt }}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    {% endif %}
 
- <!--Middle/Bottom Left/Middle-->
- <div style = "position:absolute; left:500px; top:500px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable3" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
- </div>
 
- <!--Bottom Right-->
- <div style = "position:absolute; left:1500px; top:600px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable4" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
- </div>
+    <!--
 
- <!--Bottom Middle-->
- <div style = "position:absolute; left:1100px; top:700px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable5" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
- </div>
+        <div style = "position:absolute; left:80px; top:200px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable1" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+        </div>
 
- <!--Top Right-->
- <div style = "position:absolute; left:1700px; top:100px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable6" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
- </div>
 
- <!--Bottom Left-->
- <div style = "position:absolute; left:100px; top:600px;">
-    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable7" data-toggle="modal" data-target="#quizModal">
-        <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
-    </button>
- </div>
+         <div style = "position:absolute; left:1000px; top:123px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable2" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+         </div>
 
-<!-- Modal -->
-<div class="modal fade" id="quizModal" tabindex="-1" role="dialog" aria-labelledby="quizModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+         <div style = "position:absolute; left:500px; top:500px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable3" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+         </div>
+
+
+         <div style = "position:absolute; left:1500px; top:600px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable4" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+         </div>
+
+
+         <div style = "position:absolute; left:1100px; top:700px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable5" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+         </div>
+
+
+         <div style = "position:absolute; left:1700px; top:100px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable6" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+         </div>
+
+
+         <div style = "position:absolute; left:100px; top:600px;">
+            <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable7" data-toggle="modal" data-target="#quizModal">
+                <img src="https://cdn.discordapp.com/attachments/801502040727486565/802720337782505492/images.png">
+            </button>
+         </div>
+         -->
+
 
 
 {% endblock content %}
