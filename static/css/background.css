@@ -1,0 +1,5 @@
+{% load static %}
+
+.bg {
+	background-image: url({% static 'images/bg.png' %});
+}
