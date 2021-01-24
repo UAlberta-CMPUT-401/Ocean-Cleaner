@@ -1,5 +1,9 @@
 {% load static %}
 
 .bg {
-	background-image: url({% static 'images/bg.png' %});
+	background-image: url(../images/bg.png);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
 }
