@@ -16,7 +16,7 @@ class Quiz(models.Model):
     #choice1 = models.CharField(max_length=200)
     #choice2 = models.CharField(max_length=200)
     #choice3 = models.CharField(max_length=200)
-    correctAnswer = models.BooleanField(default=None)
+    correctAnswer = models.BooleanField(default=False)
     userAnswer = models.BooleanField(default=None)
 
     def __str__(self):

@@ -7,32 +7,27 @@ def home(request):
 
     quizzes = []
 
-    quiz1 = Quiz()
-    quiz1.prompt = "Test Prompt"
-    quiz1.title = "Quiz 1"
-    quiz1.id = 1
-    quiz1.correctAnswer = True
+    firstQuiz = Quiz.objects.get(pk=1)
+    quizzes.append(firstQuiz)
 
-    quizzes.append(quiz1)
+    secondQuiz = Quiz.objects.get(pk=2)
+    quizzes.append(secondQuiz)
 
-    quiz2 = Quiz()
-    quiz2.prompt = "Test Prompt2"
-    quiz2.title = "Quiz 2"
-    quiz2.id = 2
-    quiz2.correctAnswer = False
+    thirdQuiz = Quiz.objects.get(pk=3)
+    quizzes.append(thirdQuiz)
 
-    quizzes.append(quiz2)
+' UNCOMMENT OUT WHEN WE HAVE 4th, 5th, AND 6th IMAGES + QUIZZES
 
-    quiz3 = Quiz()
-    quiz3.prompt = "Test Prompt3"
-    quiz3.title = "Quiz 3"
-    quiz3.id = 3
-    quiz3.correctAnswer = True
+'''    fourthQuiz = Quiz.objects.get(pk=4)
+    quizzes.append(fourthQuiz)
 
-    quizzes.append(quiz3)
+    fifthQuiz = Quiz.objects.get(pk=5)
+    quizzes.append(fifthQuiz)
+
+    sixthQuiz = Quiz.objects.get(pk=6)
+    quizzes.append(sixthQuiz) '''
 
     context = {'title': 'Home', 'quizzes': quizzes}  # add more stuff here
-
 
     return render(request, 'home.html', context)
 
