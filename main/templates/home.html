@@ -13,14 +13,32 @@
                     </button>
                 </div>
             {% elif quiz.id == 2 %}
-                <div style = "position:absolute; left:1000px; top:123px;">
+                <div style = "position:absolute; left:700px; top:123px;">
                     <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable2" data-toggle="modal" data-target="#{{ quiz.title }}">
                         <img src="{% static 'images/trash2.png' %}">
                     </button>
                 </div>
-            {% else %}
-                <div style = "position:absolute; left:500px; top:500px;">
+            {% elif quiz.id == 3 %}
+                <div style = "position:absolute; left:300px; top:665px;">
                     <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable3" data-toggle="modal" data-target="#{{ quiz.title }}">
+                        <img src="{% static 'images/trash6.png' %}">
+                    </button>
+                </div>
+            {% elif quiz.id == 4 %}
+                <div style = "position:absolute; left:1050px; top:700px;">
+                    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable4" data-toggle="modal" data-target="#{{ quiz.title }}">
+                        <img src="{% static 'images/trash4.png' %}">
+                    </button>
+                </div>
+            {% elif quiz.id == 5 %}
+                <div style = "position:absolute; left:1425px; top:665px;">
+                    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable5" data-toggle="modal" data-target="#{{ quiz.title }}">
+                        <img src="{% static 'images/trash5.png' %}">
+                    </button>
+                </div>
+            {% else %}
+                <div style = "position:absolute; left:1150px; top:300px;">
+                    <button class="btn btn-primary" style="border:none; background-color: transparent; outline:none;" id="Interactable6" data-toggle="modal" data-target="#{{ quiz.title }}">
                         <img src="{% static 'images/trash3.png' %}">
                     </button>
                 </div>
@@ -37,8 +55,8 @@
                       {{ quiz.prompt }}
                   </div>
                   <div class="modal-footer" style="align-items: center; justify-content: center;">
-                    <button type="button" class="btn btn-success">Yes</button>
-                    <button type="button" class="btn btn-danger">No</button>
+                    <button type="button" class="btn btn-success" data-dismiss='modal'>Yes</button>
+                    <button type="button" class="btn btn-danger" data-dismiss='modal's>No</button>
                   </div>
                 </div>
               </div>

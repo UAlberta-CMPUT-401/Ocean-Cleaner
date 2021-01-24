@@ -31,6 +31,30 @@ def home(request):
 
     quizzes.append(quiz3)
 
+    quiz4 = Quiz()
+    quiz4.prompt = "Test Prompt4"
+    quiz4.title = "Quiz 4"
+    quiz4.id = 4
+    quiz4.correctAnswer = True
+
+    quizzes.append(quiz4)
+
+    quiz5 = Quiz()
+    quiz5.prompt = "Test Prompt5"
+    quiz5.title = "Quiz 5"
+    quiz5.id = 5
+    quiz5.correctAnswer = True
+
+    quizzes.append(quiz5)
+
+    quiz6 = Quiz()
+    quiz6.prompt = "Test Prompt6"
+    quiz6.title = "Quiz 6"
+    quiz6.id = 6
+    quiz6.correctAnswer = True
+
+    quizzes.append(quiz6)
+
     context = {'title': 'Home', 'quizzes': quizzes}  # add more stuff here
 
     return render(request, 'home.html', context)
