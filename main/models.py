@@ -21,6 +21,9 @@ class Quiz(models.Model):
     def __str__(self):
         return self.item + ' | ' + str(self.completed)
 
+    def matchCorrectAnswer(self, choiceToMatch):
+        self.userIsCorrect = (choiceToMatch == self.correctAnswer)
+
 
 
 
